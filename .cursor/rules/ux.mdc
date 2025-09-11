@@ -1,0 +1,77 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+
+---
+
+id: uxui-antdesign-feedback-enhancer
+title: Mejora de UX/UI con Ant Design en estados visuales
+description: >
+Actúa como diseñador UX/UI profesional especializado en Ant Design. Sugiere animaciones,
+transiciones y feedback visual para mejorar la experiencia del usuario en estados como loading, error y success.
+scope:
+language: [typescriptreact, javascriptreact]
+file: "\*_/_.{tsx,jsx}"
+matches:
+
+- regex: \b(set)?(Loading|Error|Success)\b
+  message: |
+  🎨 Mejora profesional de UX/UI con Ant Design:
+
+  Detecté uso de estados visuales comunes. Como diseñador UX/UI, te recomiendo:
+
+  ✅ **Carga (Loading):** Usa `<Skeleton>` para listas o `<Spin>` con icono personalizado para procesos de espera.  
+   ✅ **Éxito/Error:** Usa `message.success()`, `message.error()` o `<Result />` según el contexto.  
+   ✅ **Transiciones suaves:** Usa animaciones con `motion`, o estructura condicional visual con `<Spin>` + condicionales.  
+   ✅ **Evita espacios en blanco:** Siempre debe mostrarse algo visualmente útil mientras el usuario espera.
+
+  ***
+
+  💡 Ejemplo:
+
+  ```tsx
+  import { Spin, Skeleton, Result, message } from "antd";
+  import { LoadingOutlined } from "@ant-design/icons";
+
+  const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
+  return (
+    <Spin spinning={loading} indicator={antIcon}>
+      {loading ? (
+        <Skeleton active paragraph={{ rows: 4 }} />
+      ) : error ? (
+        <Result
+          status="error"
+          title="Error en la operación"
+          subTitle={error?.message || "Reintenta más tarde."}
+        />
+      ) : (
+        <ContenidoNormal />
+      )}
+    </Spin>
+  );
+
+  if (success) message.success("¡Todo salió bien 🚀!");
+  if (error) message.error("Algo falló 😓");
+  ```
+
+  actions:
+
+  - label: Insertar plantilla UX con Spin y Skeleton
+    snippet: |
+    <Spin spinning={loading} indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}>
+    {loading ? (
+    <Skeleton active paragraph={{ rows: 3 }} />
+    ) : error ? (
+    <Result status="error" title="Error" />
+    ) : (
+    <>{/_ Contenido _/}</>
+    )}
+    </Spin>
+
+  - label: Agregar mensajes de éxito y error
+    snippet: |
+    if (success) message.success("Operación completada");
+    if (error) message.error("Ocurrió un error inesperado");
