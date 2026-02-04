@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>💕 Feliz Cumpleaños Mi Amor 💕</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            scroll-behavior: smooth;
+        }
+
+        /* Sección de inicio */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><text x="10" y="50" font-size="40">💕</text></svg>') repeat;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-100px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .hero-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .scroll-hint {
+            font-size: 1rem;
+            color: #fff;
+            margin-top: 40px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Galería de fotos */
+        .gallery-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .photo-item {
+            position: relative;
+            width: 100%;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .photo-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .photo-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Mensajes sobre las fotos */
+        .message-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+            color: #fff;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease 0.3s;
+        }
+
+        .photo-item.visible .message-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .message-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            text-align: center;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Separador decorativo */
+        .separator {
+            text-align: center;
+            margin: 80px 0;
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* Sección final */
+        .final-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .final-content {
+            max-width: 600px;
+        }
+
+        .final-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem;
+            color: #d63031;
+            margin-bottom: 30px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            10%,
+            30% {
+                transform: scale(1.1);
+            }
+
+            20%,
+            40% {
+                transform: scale(1.05);
+            }
+        }
+
+        .final-message {
+            font-size: 1.2rem;
+            color: #2d3436;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .final-emoji {
+            font-size: 3rem;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .message-text {
+                font-size: 1.2rem;
+            }
+
+            .final-title {
+                font-size: 2rem;
+            }
+
+            .final-message {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .message-text {
+                font-size: 1rem;
+                padding: 15px 10px;
+            }
+
+            .final-title {
+                font-size: 1.7rem;
+            }
+
+            .gallery-container {
+                padding: 10px;
+            }
+
+            .photo-item {
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sección Hero -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">💕 Feliz Cumpleaños Mi Amor 💕</h1>
+            <p class="hero-subtitle">Un recorrido por nuestros mejores momentos</p>
+            <div class="scroll-hint">
+                ↓ Desliza hacia abajo ↓
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de fotos -->
+    <div class="gallery-container">
+        <!-- Foto 1 - CON MENSAJE -->
+        <div class="photo-item" data-message="true">
+            <div class="photo-wrapper">
+                <img class="photo-img"
+                    src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=800&h=1000&fit=crop"
+                    alt="Momento especial">
+                <div class="message-overlay">
+                    <p class="message-text">
+                        Desde el primer día que te vi, supe que eras especial ✨
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="separator">💖</div>
+
+        <!-- Foto 2 - SIN MENSAJE -->
+        <div class="photo-item">
+            <div class="photo-wrapper">
+                <img class="photo-img"
+                    src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&h=1000&fit=crop"
+                    alt="Momento especial">
+            </div>
+        </div>
+
+        <!-- Foto 3 - CON MENSAJE -->
+        <div class="photo-item" data-message="true">
+            <div class="photo-wrapper">
+                <img class="photo-img"
+                    src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=800&h=1000&fit=crop"
+                    alt="Momento especial">
+                <div class="message-overlay">
+                    <p class="message-text">
+                        Cada momento contigo es un regalo que atesoro 🎁
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="separator">💗</div>
+
+        <!-- Foto 4 - SIN MENSAJE -->
+        <div class="photo-item">
+            <div class="photo-wrapper">
+                <img class="photo-img"
+                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=1000&fit=crop"
+                    alt="Momento especial">
+            </div>
+        </div>
+
+        <!-- Foto 5 - CON MENSAJE -->
+        <div class="photo-item" data-message="true">
+            <div class="photo-wrapper">
+                <img class="photo-img"
+                    src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=1000&fit=crop"
+                    alt="Momento especial">
+                <div class="message-overlay">
+                    <p class="message-text">
+                        Tu sonrisa ilumina mis días más oscuros 🌟
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="separator">💝</div>
+
+        <!-- Foto 6 - SIN MENSAJE -->
+        <div class="photo-item">
+            <div class="photo-wrapper">
+                <img class="photo-img"
+                    src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=1000&fit=crop"
+                    alt="Momento especial">
+            </div>
+        </div>
+
+        <!-- Foto 7 - CON MENSAJE -->
+        <div class="photo-item" data-message="true">
+            <div class="photo-wrapper">
+                <img class="photo-img"
+                    src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&h=1000&fit=crop"
+                    alt="Momento especial">
+                <div class="message-overlay">
+                    <p class="message-text">
+                        Contigo, cada día es una nueva aventura 🌈
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="separator">💞</div>
+
+        <!-- Foto 8 - SIN MENSAJE -->
+        <div class="photo-item">
+            <div class="photo-wrapper">
+                <img class="photo-img"
+                    src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=800&h=1000&fit=crop"
+                    alt="Momento especial">
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Final -->
+    <section class="final-section">
+        <div class="final-content">
+            <h2 class="final-title">¡Feliz Cumpleaños! 🎂</h2>
+            <p class="final-message">
+                Gracias por ser la persona más increíble del mundo.
+                Por cada sonrisa, cada abrazo, cada momento compartido.
+                Que este día sea tan especial como tú lo eres para mí.
+            </p>
+            <p class="final-message">
+                Te amo con todo mi corazón ❤️
+            </p>
+            <div class="final-emoji">🎉🎈🎁💕</div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer para animar las fotos al hacer scroll
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar todas las fotos
+        document.querySelectorAll('.photo-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+
+</html>
